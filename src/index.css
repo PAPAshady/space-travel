@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: bellefair;
+    src: url(assets/Fonts/Bellefair-Regular.ttf);
+  }
+}
