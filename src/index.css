@@ -8,3 +8,9 @@
     src: url(assets/Fonts/Bellefair-Regular.ttf);
   }
 }
+
+@layer utilities {
+  .container {
+    @apply mx-auto w-[95%] max-w-[1440px];
+  }
+}

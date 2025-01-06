@@ -1,0 +1,15 @@
+#home-wrapper {
+  background-image: url(../../assets/images/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 640px) {
+  #home-wrapper {
+    background-image: url(../../assets/images/home/background-home-tablet.jpg);
+  }
+}
+
+@media (min-width: 1024px) {
+  #home-wrapper {
+    background-image: url(../../assets/images/home/background-home-desktop.jpg);
+  }
+}
