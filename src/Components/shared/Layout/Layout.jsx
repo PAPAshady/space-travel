@@ -1,42 +1,52 @@
+import { useState } from 'react';
 import { Outlet, Link, NavLink } from 'react-router-dom';
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import HamburgerMenuIcon from '../../../assets/images/shared/icon-hamburger.svg';
 import Logo from '../../../assets/images/shared/logo.svg';
 import PropTypes from 'prop-types';
 
 export default function Layout() {
+  const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+
   const navLinks = [
     { id: 1, title: 'HOME', href: '/' },
     { id: 2, title: 'DESTINATION', href: '/destination' },
     { id: 3, title: 'CREW', href: '/crew' },
-    { id: 4, title: 'THECHNOLOGY', href: '/thechnology' },
+    { id: 4, title: 'TECHNOLOGY', href: '/technology' },
   ];
 
   return (
-    <div className="relative">
-      <header className="fixed w-full">
-        <div>
-          <div className="relative flex items-center justify-between lg:container lg:mt-8">
-            <Link to="/" className="p-4 md:px-8 lg:me-12 lg:px-0">
-              <img src={Logo} alt="Logo" />
-            </Link>
-            <span className="z-20 hidden h-[1px] flex-1 translate-x-8 bg-white/50 lg:block"></span>
-            <div className="md:flex-1 lg:flex-grow-0">
-              <div className="hidden items-center justify-end gap-8 bg-blue-dark px-12 tracking-wider text-white backdrop-blur-md md:flex lg:gap-12 lg:bg-[rgba(255,255,255,0.1)] lg:ps-52 xl:ps-64">
-                {navLinks.map((link) => (
-                  <HeaderNavLink key={link.id} {...link} />
-                ))}
+    <>
+      <div className="relative">
+        <header className="fixed w-full">
+          <div>
+            <div className="relative flex items-center justify-between lg:container lg:mt-8">
+              <Link to="/" className="p-4 md:px-8 lg:me-12 lg:px-0">
+                <img src={Logo} alt="Logo" />
+              </Link>
+              <span className="z-20 hidden h-[1px] flex-1 translate-x-8 bg-white/50 lg:block"></span>
+              <div className="md:flex-1 lg:flex-grow-0">
+                <div className="hidden items-center justify-end gap-8 bg-blue-dark px-12 tracking-wider text-white backdrop-blur-md md:flex lg:gap-12 lg:bg-[rgba(255,255,255,0.1)] lg:ps-52 xl:ps-64">
+                  {navLinks.map((link) => (
+                    <HeaderNavLink key={link.id} {...link} />
+                  ))}
+                </div>
+                <button
+                  className="p-4 md:hidden"
+                  onClick={() => setShowHamburgerMenu(true)}
+                >
+                  <img src={HamburgerMenuIcon} alt="Menu" />
+                </button>
               </div>
-              <button className="p-4 md:hidden">
-                <img src={HamburgerMenuIcon} alt="Menu" />
-              </button>
             </div>
           </div>
-        </div>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-    </div>
+        </header>
+        <main>
+          <Outlet />
+        </main>
+      </div>
+      <HamburgerMenu show={showHamburgerMenu} onClose={setShowHamburgerMenu} />
+    </>
   );
 }
 
