@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        xs: '480px',
+      },
       colors: {
         blue: {
           dark: '#191b27',
@@ -11,6 +14,7 @@ export default {
       },
       fontFamily: {
         bellefair: 'bellefair, sans-serif',
+        barlow: 'barlow, sans-serif',
       },
     },
   },
