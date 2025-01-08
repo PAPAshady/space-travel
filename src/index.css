@@ -5,7 +5,25 @@
 @layer base {
   @font-face {
     font-family: bellefair;
-    src: url(assets/Fonts/Bellefair-Regular.ttf);
+    src: url(assets/Fonts/Bellefair/Bellefair-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: barlow;
+    font-weight: 500;
+    src: url(assets/Fonts/Barlow/Barlow-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: barlow;
+    font-weight: 600;
+    src: url(assets/Fonts/Barlow/Barlow-SemiBold.ttf);
+  }
+
+  @font-face {
+    font-family: barlow;
+    font-weight: 700;
+    src: url(assets/Fonts/Barlow/Barlow-Bold.ttf);
   }
 }
 
