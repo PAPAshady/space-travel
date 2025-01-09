@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Outlet, Link, NavLink } from 'react-router-dom';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import HamburgerMenuIcon from '../../../assets/images/shared/icon-hamburger.svg';
@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 
 export default function Layout() {
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+  const [showHeaderBackground, setShowHeaderBackground] = useState(false);
+  // check if browser supports backdrop-filter css property.
+  const supportsBlurBackground = CSS.supports('backdrop-filter', 'blur()');
 
   const navLinks = [
     { id: 1, title: 'HOME', href: '/' },
@@ -15,10 +18,25 @@ export default function Layout() {
     { id: 4, title: 'TECHNOLOGY', href: '/technology' },
   ];
 
+  useEffect(() => {
+    function handleHeaderOnScroll() {
+      if (window.scrollY > 50) {
+        setShowHeaderBackground(true);
+      } else {
+        setShowHeaderBackground(false);
+      }
+    }
+    window.addEventListener('scroll', handleHeaderOnScroll);
+
+    return () => window.removeEventListener('scroll', handleHeaderOnScroll);
+  }, []);
+
   return (
     <>
       <div className="relative">
-        <header className="fixed w-full">
+        <header
+          className={`fixed w-full transition-colors md:bg-transparent ${showHeaderBackground ? 'bg-blue-dark' : 'bg-transparent'}`}
+        >
           <div>
             <div className="relative flex items-center justify-between lg:container lg:mt-8">
               <Link to="/" className="p-4 md:px-8 lg:me-12 lg:px-0">
@@ -26,7 +44,9 @@ export default function Layout() {
               </Link>
               <span className="z-20 hidden h-[1px] flex-1 translate-x-8 bg-white/50 lg:block"></span>
               <div className="md:flex-1 lg:flex-grow-0">
-                <div className="hidden items-center justify-end gap-8 bg-blue-dark px-12 tracking-wider text-white backdrop-blur-md md:flex lg:gap-12 lg:bg-[rgba(255,255,255,0.1)] lg:ps-52 xl:ps-64">
+                <div
+                  className={`hidden items-center justify-end gap-8 bg-blue-dark px-12 tracking-wider text-white md:flex lg:gap-12 lg:ps-52 xl:ps-64 ${supportsBlurBackground ? 'backdrop-blur-md lg:bg-[rgba(255,255,255,0.1)]' : ''}`}
+                >
                   {navLinks.map((link) => (
                     <HeaderNavLink key={link.id} {...link} />
                   ))}
@@ -50,7 +70,7 @@ export default function Layout() {
   );
 }
 
-function HeaderNavLink({ title, href }) {
+const HeaderNavLink = memo(({ title, href }) => {
   return (
     <NavLink
       className={({ isActive }) =>
@@ -61,7 +81,7 @@ function HeaderNavLink({ title, href }) {
       {title}
     </NavLink>
   );
-}
+});
 
 HeaderNavLink.propTypes = {
   title: PropTypes.string.isRequired,
