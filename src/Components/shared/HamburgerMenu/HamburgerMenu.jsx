@@ -64,4 +64,7 @@ MobileNavLink.propTypes = {
   href: PropTypes.string.isRequired,
 };
 
+HamburgerMenu.displayName = 'HamburgerMenu';
+MobileNavLink.displayName = 'MobileNavLink';
+
 export default HamburgerMenu;

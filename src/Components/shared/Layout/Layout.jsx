@@ -87,3 +87,5 @@ HeaderNavLink.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
 };
+
+HeaderNavLink.displayName = 'HeaderNavLink';
