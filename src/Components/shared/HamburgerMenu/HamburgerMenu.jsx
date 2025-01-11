@@ -30,7 +30,7 @@ const HamburgerMenu = memo(({ show, onClose }) => {
         </div>
         <ul className="flex flex-col gap-2 ps-6">
           {navLinks.map((link) => (
-            <MobileNavLink key={link.id} {...link} />
+            <MobileNavLink key={link.id} {...link} clickHandler={onClose} />
           ))}
         </ul>
       </div>
@@ -39,14 +39,16 @@ const HamburgerMenu = memo(({ show, onClose }) => {
   );
 });
 
-const MobileNavLink = memo(({ title, href }) => {
+const MobileNavLink = memo(({ title, href, clickHandler }) => {
   return (
     <li>
       <NavLink
         className={({ isActive }) =>
-          `block py-2 text-white ${isActive ? 'border-e-4' : ''}`
+          `block py-2 text-white ${isActive ? 'border-e-[5px]' : ''}`
         }
         to={href}
+        // close hamburger menu when user click on a link
+        onClick={() => clickHandler(false)}
       >
         {title}
       </NavLink>
@@ -62,6 +64,7 @@ HamburgerMenu.propTypes = {
 MobileNavLink.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 HamburgerMenu.displayName = 'HamburgerMenu';
