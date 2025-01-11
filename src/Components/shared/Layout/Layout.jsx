@@ -35,7 +35,7 @@ export default function Layout() {
     <>
       <div className="relative">
         <header
-          className={`fixed w-full transition-colors md:bg-transparent ${showHeaderBackground ? 'bg-blue-dark' : 'bg-transparent'}`}
+          className={`fixed w-full z-10 transition-colors md:bg-transparent ${showHeaderBackground ? 'bg-blue-dark' : 'bg-transparent'}`}
         >
           <div>
             <div className="relative flex items-center justify-between lg:container lg:mt-8">
