@@ -19,7 +19,7 @@ export default function Destination() {
           <div className="relative flex justify-center py-12 md:py-14 lg:flex-1 lg:p-0">
             {destinations.map(({ id, name, image }) => (
               <img
-                className={`size-[180px] transition-all duration-500 xs:size-[220px] sm:size-[300px] md:size-[350px] lg:size-[380px] ${currentDestination.name === name ? 'visible opacity-100' : 'invisible absolute opacity-0'}`}
+                className={`size-[180px] transition-all duration-500 xs:size-[220px] sm:size-[300px] md:size-[350px] lg:size-[400px] min-[1100px]:size-[450px] ${currentDestination.name === name ? 'visible opacity-100' : 'invisible absolute opacity-0'}`}
                 src={image}
                 alt={name}
                 key={id}
@@ -53,7 +53,7 @@ export default function Destination() {
             <div className="relative mb-4">
               {destinations.map((destination) => (
                 <p
-                  className={`pb-4 text-center font-barlow leading-[1.7] text-blue-light transition-all duration-500 xs:max-w-none lg:text-start lg:text-lg ${destination.name === currentDestination.name ? 'visible opacity-100' : 'invisible absolute opacity-0'}`}
+                  className={`pb-4 text-center font-barlow leading-[1.7] text-blue-light transition-all duration-500 xs:max-w-none lg:text-start lg:text-lg ${destination.name === currentDestination.name ? 'visible opacity-100' : 'invisible absolute top-0 opacity-0'}`}
                   key={destination.id}
                 >
                   {destination.description}
