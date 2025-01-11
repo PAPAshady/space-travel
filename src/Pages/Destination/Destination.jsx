@@ -19,7 +19,7 @@ export default function Destination() {
           <div className="relative flex justify-center py-12 md:py-14 lg:flex-1 lg:p-0">
             {destinations.map(({ id, name, image }) => (
               <img
-                className={`size-[180px] transition-all duration-500 xs:size-[220px] sm:size-[300px] md:size-[350px] lg:size-[380px] ${currentDestination.name === name ? 'visible opacity-100' : 'invisible absolute opacity-0'}`}
+                className={`size-[220px] transition-all duration-500 sm:size-[300px] md:size-[350px] lg:size-[380px] ${currentDestination.name === name ? 'visible opacity-100' : 'invisible absolute opacity-0'}`}
                 src={image}
                 alt={name}
                 key={id}
