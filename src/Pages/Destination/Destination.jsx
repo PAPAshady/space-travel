@@ -15,7 +15,7 @@ export default function Destination() {
           PICK YOUR DESTINATION
         </p>
 
-        <div className="relative">
+        <div className="relative flex justify-center">
           {destinations.map((destination) => (
             <div
               className={`flex flex-col transition-all duration-500 lg:flex-row lg:items-center lg:gap-10 ${destination.id === currentDestination.id ? 'visible opacity-100' : 'invisible absolute top-0 opacity-0'}`}
@@ -48,12 +48,12 @@ export default function Destination() {
                     {destination.name.toUpperCase()}
                   </p>
                 </div>
-                <div className="mb-4">
-                  <p className="pb-4 text-center font-barlow leading-[1.7] text-blue-light transition-all duration-500 xs:max-w-none lg:text-start lg:text-lg">
+                <div className="mb-4 flex justify-center">
+                  <p className="h-[165px] max-w-[300px] text-center font-barlow leading-[1.7] text-blue-light transition-all duration-500 xs:h-[110px] xs:max-w-[450px] sm:h-[81px] sm:max-w-[608px] lg:h-[145px] lg:max-w-[400px] lg:text-start lg:text-lg min-[1100px]:h-[130px] min-[1100px]:max-w-[431px] xl:h-[112px] xl:max-w-none">
                     {destination.description}
                   </p>
                 </div>
-                <div className="px-3 sm:pb-4 lg:py-0">
+                <div className="px-3 sm:pb-4 lg:p-0">
                   <div className="flex justify-center gap-7 border-t border-neutral-600 py-7 text-center lg:pb-0 lg:text-start">
                     <div className="flex flex-col gap-7 transition-all duration-500 sm:w-4/5 sm:flex-row sm:items-center sm:justify-between lg:w-full lg:justify-start">
                       <div className="lg:flex-1">
