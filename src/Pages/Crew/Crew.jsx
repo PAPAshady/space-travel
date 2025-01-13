@@ -50,7 +50,7 @@ export default function Crew() {
                     src={crew.image}
                     alt={crew.name}
                   />
-                  <span className="to-bluetransparet absolute bottom-0 left-0 h-[30%] w-full bg-gradient-to-t from-[rgba(0,0,0,.9)]"></span>
+                  <span className="absolute bottom-0 left-0 h-[30%] w-full lg:bg-none bg-gradient-to-t from-[rgba(0,0,0,.9)]"></span>
                 </div>
               </div>
             </div>
