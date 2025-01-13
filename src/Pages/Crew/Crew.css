@@ -1,0 +1,15 @@
+#crews-wrapper {
+  background-image: url(../../assets/images/crew/background-crew-mobile.jpg);
+}
+
+@media (min-width: 640px) {
+  #crews-wrapper {
+    background-image: url(../../assets/images/crew/background-crew-tablet.jpg);
+  }
+}
+
+@media (min-width: 1024px) {
+  #crews-wrapper {
+    background-image: url(../../assets/images/crew/background-crew-desktop.jpg);
+  }
+}
