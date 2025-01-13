@@ -3,7 +3,9 @@ import { destinations } from '../../data';
 import './Destination.css';
 
 export default function Destination() {
-  const [currentDestination, setCurrentDestination] = useState(destinations[0]);
+  const [currentDestinationId, setCurrentDestinationId] = useState(
+    destinations[0].id
+  );
 
   return (
     <div
@@ -18,7 +20,7 @@ export default function Destination() {
         <div className="relative flex justify-center">
           {destinations.map((destination) => (
             <div
-              className={`flex flex-col transition-all duration-500 lg:flex-row lg:items-center lg:gap-10 ${destination.id === currentDestination.id ? 'visible opacity-100' : 'invisible absolute top-0 opacity-0'}`}
+              className={`flex flex-col transition-all duration-500 lg:flex-row lg:items-center lg:gap-10 ${destination.id === currentDestinationId ? 'visible opacity-100' : 'invisible absolute top-0 opacity-0'}`}
               key={destination.id}
             >
               <div className="flex justify-center py-12 md:py-14 lg:flex-1 lg:p-0">
@@ -34,9 +36,9 @@ export default function Destination() {
                 <div className="flex items-center justify-center gap-8 lg:justify-start">
                   {destinations.map((destination) => (
                     <button
-                      className={`border-b-[3px] pb-3 font-barlow transition-colors duration-500 hover:border-white/50 hover:text-white/80 ${currentDestination.id === destination.id ? 'border-white text-white' : 'border-transparent text-blue-light'}`}
+                      className={`border-b-[3px] pb-3 font-barlow transition-colors duration-500 hover:border-white/50 hover:text-white/80 ${currentDestinationId.id === destination.id ? 'border-white text-white' : 'border-transparent text-blue-light'}`}
                       key={destination.id}
-                      onClick={() => setCurrentDestination(destination)}
+                      onClick={() => setCurrentDestinationId(destination.id)}
                     >
                       {destination.name.toUpperCase()}
                     </button>
