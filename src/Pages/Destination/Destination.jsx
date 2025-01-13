@@ -36,7 +36,7 @@ export default function Destination() {
                 <div className="flex items-center justify-center gap-8 lg:justify-start">
                   {destinations.map((destination) => (
                     <button
-                      className={`border-b-[3px] pb-3 font-barlow transition-colors duration-500 hover:border-white/50 hover:text-white/80 ${currentDestinationId.id === destination.id ? 'border-white text-white' : 'border-transparent text-blue-light'}`}
+                      className={`border-b-[3px] pb-3 font-barlow transition-colors duration-500 hover:border-white/50 hover:text-white/80 ${currentDestinationId === destination.id ? 'border-white text-white' : 'border-transparent text-blue-light'}`}
                       key={destination.id}
                       onClick={() => setCurrentDestinationId(destination.id)}
                     >
