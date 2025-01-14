@@ -2,6 +2,15 @@
 
 A multi-page, responsive website that allows users to explore the wonders of space travel. Users can discover exciting destinations, learn about the crew, and delve into the technology behind space exploration.
 
+## Table of Contents
+- [Live Demo](#live-demo)
+- [Screenshots](#screenshots)
+- [Setup Instructions](#setup-instructions)
+- [Pages Overview](#pages-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Contributors](#contributors)
+
 ## Live Demo
 🌐[Click here to see the live demo](https://universe-travel.netlify.app)
 
